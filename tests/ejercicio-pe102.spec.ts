@@ -34,7 +34,6 @@ describe("EliminarCarta tests", () => {
     });
   });
 
-  describe("EliminarCarta tests", () => {
     it("EliminarCarta deberia borrar la carta", (done) => {
       // Simular la existencia de la carta
       const id = 5;
@@ -49,5 +48,3 @@ describe("EliminarCarta tests", () => {
         }
       });
     });
-    
-  });
