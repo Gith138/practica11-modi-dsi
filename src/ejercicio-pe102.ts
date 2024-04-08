@@ -6,11 +6,12 @@
    * @param {string} usuario - El nombre del usuario.
    * @param {function} callback - La función de retorno de llamada que se ejecutará después de eliminar la carta.
    */
+
   export function EliminarCarta(id: number, usuario: string, callback: (err: string | undefined, mensaje: string | undefined) => void) {
     const directorio_cartas = `./cartas/${usuario}`;
     const RutaCarta = `${directorio_cartas}/${id}.json`;
   
-    fs.access(RutaCarta, fs.constants.F_OK, (err) => {
+    fs.access(RutaCarta, fs.constants.F_OK, (err) => { // Verificar si la carta existe, usando fs.access
         if (err) { // Si hay un error, significa que la carta no existe
             callback(`La carta no existe en la colección de ${usuario}!`, undefined);
         } else {
