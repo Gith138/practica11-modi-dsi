@@ -10,12 +10,11 @@
   export function EliminarCarta(id: number, usuario: string, callback: (err: string | undefined, mensaje: string | undefined) => void) {
     const directorio_cartas = `./cartas/${usuario}`;
     const RutaCarta = `${directorio_cartas}/${id}.json`;
-  
-    fs.access(RutaCarta, fs.constants.F_OK, (err) => { // Verificar si la carta existe, usando fs.access
+    fs.access(RutaCarta, fs.constants.F_OK, (err) => { // Verificar si la carta existe, usando fs.access con fs.constants.F_OK que es para verificar si el archivo existe.
         if (err) { // Si hay un error, significa que la carta no existe
             callback(`La carta no existe en la colección de ${usuario}!`, undefined);
         } else {
-            fs.unlink(RutaCarta, (err) => {
+            fs.unlink(RutaCarta, (err) => { // borra la carta existente, sino muestra un error
                 if (err) {
                     callback(`Error al eliminar la carta: ${err}`, undefined);
                 } else {
