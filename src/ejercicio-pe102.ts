@@ -6,7 +6,7 @@
   Modifique el código fuente que invoca a dichos métodos para gestionar las promesas devueltas por los mismos.
   Lleve a cabo pruebas de ambos métodos.
   */ 
-import { Cartas, Color, Rareza, Tipo } from './cartas.js';  
+import { Cartas } from './cartas.js';  
 import fs from 'fs/promises';
 
 /**
@@ -46,7 +46,7 @@ export function ActualizarCarta(carta: Cartas, usuario: string): Promise<string>
   const RutaCarta = `${directorio_cartas}/${carta.id}.json`;
 
   return new Promise<string>((resolve, reject) => { // Promesa para actualizar la carta en la colección
-    fs.access(RutaCarta, fs.constants.F_OK)
+    fs.access(RutaCarta, fs.constants.F_OK) // Se verifica si la carta existe
       .then(() => { // Si la carta existe, se actualiza
         return fs.writeFile(RutaCarta, JSON.stringify(carta, undefined, 2)); // Se actualiza la carta
       })

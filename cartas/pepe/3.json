@@ -1,0 +1,11 @@
+{
+  "id": 3,
+  "nombre": "pepe",
+  "coste_mana": 5,
+  "color": "verde",
+  "tipo": "Planeswalker",
+  "rareza": "Mítica",
+  "texto_reglas": "Texto de reglas para el planeswalker aliado",
+  "valor_mercado": 50,
+  "marcas_lealtad": 5
+}
