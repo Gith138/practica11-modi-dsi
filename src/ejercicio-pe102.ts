@@ -10,7 +10,6 @@ import { Cartas, Color, Rareza, Tipo } from './cartas.js';
 import fs from 'fs/promises';
 
 /**
- * 
  * @param id  id de la carta a eliminar
  * @param usuario nombre del usuario 
  * @returns mensaje de confirmación de eliminación de la carta
@@ -38,7 +37,6 @@ export function EliminarCarta(id: number, usuario: string): Promise<string> {
 }
  
 /**
- * 
  * @param carta  objeto Cartas a actualizar
  * @param usuario nombre del usuario
  * @returns mensaje de confirmación de actualización de la carta
@@ -50,13 +48,13 @@ export function ActualizarCarta(carta: Cartas, usuario: string): Promise<string>
   return new Promise<string>((resolve, reject) => { // Promesa para actualizar la carta en la colección
     fs.access(RutaCarta, fs.constants.F_OK)
       .then(() => { // Si la carta existe, se actualiza
-        return fs.writeFile(RutaCarta, JSON.stringify(carta, undefined, 2));
+        return fs.writeFile(RutaCarta, JSON.stringify(carta, undefined, 2)); // Se actualiza la carta
       })
       .then(() => { // Se resuelve la promesa con un mensaje de confirmación
         resolve(`Carta actualizada en la colección de ${usuario}!`);
       })
       .catch((err) => { // Si la carta no existe, se rechaza la promesa con un mensaje de error
-        if (err.code === 'ENOENT') {
+        if (err.code === 'ENOENT') { // Si la carta no existe
           reject(`La carta no existe en la colección de ${usuario}!`);
         } else {
           reject(`Error al actualizar la carta: ${err.message}`);

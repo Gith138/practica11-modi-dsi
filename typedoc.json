@@ -1,8 +1,7 @@
 {
     "entryPoints": [
       "./src/cartas.ts",
-      "./src/magic-app.ts",
-      "./src/main.ts"
+      "./src/ejercicio-pe102.ts"
     ],
     "out": "./docs"
 }
